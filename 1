@@ -1,0 +1,331 @@
+
+7)The following information is given that contains Tax details in a Budget.
+
+Income Form                       |  Amount (in Paise)
+Corporation Tax                   |  21
+Income Tax                        |  16
+Customs                           |  4
+Union Excise Duties               |  8
+GST & other Taxes                 |  19
+Non-Tax Revenue                   |  9
+Non-Debt Capital Receipts         |  3
+Borrowings and Other Liabilities  |  20
+
+Develop a Python program that utilizes the Matplotlib library to create a Donut Chart 
+to visualize the distribution of Income tax across different categories.
+
+Code:-
+import matplotlib.pyplot as plt
+income = ['Corporation Tax','Income Tax','Customs','Union Excise Duties','GST & 
+other Taxes','Non-Tax Revenue','Non-Debt Capital Receipts','Borrowings and 
+Other Liabilities']
+amount = [21, 16, 4, 8, 19, 9, 3, 20]
+plt.figure(figsize=(10,10))
+plt.pie(amount, labels = income, autopct='%.1f%%', 
+ wedgeprops = {'linewidth':5,'edgecolor':'white'})
+donut = plt.gcf()
+c = plt.Circle((0,0), radius = 0.5, color='white')
+donut.gca().add_artist(c)
+plt.text(0, 0, 'Total\n100%', ha='center', va='center', fontsize=16, 
+fontweight='bold', color='black')
+plt.title("Where a rupee comes from?", fontsize = 20)
+plt.show()
+
+8)A dataset in csv format is given that contains information about Students' 
+performance in five subjects: English, Math, Science, Social_Science and 
+Computer_Science. Develop aPython program that utilizes the Matplotlib 
+library to create a Scatter Plot to visualize the relationship between 
+the students' scores in any three subjects.
+
+code:-
+import matplotlib.pyplot as plt
+import pandas as pd
+df = pd.read_csv("Student_performance.csv")
+y1 = df ['Math'].tolist() 
+y2 = df ['Science'].tolist() 
+y3 = df ['Computer_Science'].tolist()
+x = [5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100]
+plt.scatter(x, y1, color='red', label = 'Math')
+plt.scatter(x, y2, color='green', label = 'Science')
+plt.scatter(x, y3, color='blue', label = 'Computer_Science')
+[7:39 am, 02/12/2025] Keerthana Hk Global: plt.legend()
+plt.title("Students Performance") 
+plt.xlabel("Marks Range") 
+plt.ylabel("Result")
+plt.show()
+
+9)
+As a data analyst at a retail company, you are interested in comparing the Sales and Profit
+performance across different Regions and Subcategories in the Sample-Superstore dataset. Use
+Tableau Visualization tool to perform the following operations on the given data set.
+• Create a Column chart to find the sum of Sales for each Region and Category. Sort the details
+in ascending order of Sales.
+• Create a Horizontal Bar chart to find the Profit of each Sub-Category and sort them in
+descending order of Profit.
+• Create a Tree map to find the Sub-Category that has the highest Sales.
+• Create a Scatter plot to find the Customers with the highest Profit and Sales.
+
+Solution:
+Create a Column chart to find the sum of Sales for each Region and Category. Sort the details in
+ascending order of Sales.
+• Drag and drop Region, Category to Columns
+• Drag and drop Sales to Rows (by default it aggregates sales as Sum(Sales))
+• By default, Column chart is generated
+• Drag Region to Color in Marks Sheet to change the color of column chart Region wise
+• Drag Sales to Label in Marks Sheet to display the labels as Sum of Sales for each Region
+• Sort the details in ascending order of Sum of Sales
+• Click on ‘Entire View’
+• Rename the Work sheet and change the title of the Work sheet
+
+Conclusion:
+Central Region East Region South Region West Region
+Lowest Sales Furniture Office Supplies Furniture Office Supplies
+Highest Sales Technology Technology Technology Technology
+
+Create a Horizontal Bar chart to find the Profit of each Sub-Category and sort them in descending
+order of Profit.
+• Drag and drop Sub-Category to Rows
+• Drag and drop Profit to Columns (by default it aggregates Profit as Sum(Profit))
+• By default, Horizontal Column chart is generated
+• Drag Category to Color in Marks Sheet to change the color of column chart Category wise
+• Drag Profit to Label in Marks Sheet to display the labels as Sum of Profit for each Sub-Category
+• Sort the details in descending order of Profit
+• Rename the Work sheet and change the title of the Work sheet
+
+Conclusion:
+Highest Profit Copiers 56,094
+Lowest Profit Tables -17,753
+
+Create a Tree map to find the Sub-Category that has the highest Sales.
+• Drag and drop Sub-Category to Columns
+• Drag and drop Sales to Rows
+• Click on Show Me icon and select Treemaps
+• Drag Sales to Label
+• Rename the Work sheet and change the title of the Work sheet
+
+Conclusion:
+Highest Sales Chairs 335,768
+Create a Scatter plot to find the Customers with the highest Profit and Sales.
+• Drag and drop Sales to Columns
+• Drag and drop Profit to Rows
+• Drag Customer Name to Detail in Marks sheet
+• Drag Profit to Color in Marks sheet, change the color of the plot by clicking Color pallet in Marks
+sheet
+• Rename the Work sheet and change the title of the Work sheet
+
+Conclusion:
+Highest Profit Tamara Chand 8,981
+Highest Sales Sean Miller 25,043
+
+10)
+As a data analyst at a retail company, you are tasked to analyze the Sales, Profit and Quantity
+distribution across different regions for each subcategory and segment in the Sample-Superstore
+dataset. Use Tableau Visualization tool to perform the following operations on the given dataset
+• Create a Pie chart to visually represent the proportion of Sales contributed by each Region
+and sort the details in descending order of Sales.
+• Create a Bubble chart to find the Sub-Category with the highest and the lowest Quantity.
+• Create a Heat map to represent the Profit in each Segment for each Sub-Category and sort
+the details in descending order of Profit.
+• Create a Box plot to identify the Technology that has the highest Profit.
+
+Solution:
+Create a Pie chart to visually represent the proportion of Sales contributed by each Region and sort
+the details in descending order of Sales.
+• Drag Region to Columns
+• Drag Sales to Rows
+• Select Pie chart from Show Me Icon
+• Select Entire View from Standard Drop Down
+• Drag Sales to Label in Marks Sheet
+• Drag Region to Label in Marks Sheet
+• Select Sum(Sales) as a Label in Marks Sheet -> Quick Table Calculation -> Percent of Total. Now
+the Sales are displayed as % of Total Sales Region wise
+• Sort in descending order of Sales
+
+Conclusion:
+Highest Sales West Region 31.8%
+Lowest Sales South Region 16.84%
+
+Create a Bubble chart to find the Sub-Category with the highest and the lowest Quantity.
+• Drag Sub-Category to Columns
+• Drag Quantity to Rows
+• Select packed bubbles chart from Show Me Icon
+• Drag Quantity to Label in Marks Sheet
+• Sort by descending order of Quantity
+
+Conclusion:
+Highest Quantity Binders 6,071
+Lowest Quantity Copiers 242
+
+Create a Heat map to represent the Profit in each Segment for each Sub-Category and sort the details
+in descending order of Profit.
+• Drag Segment and Sub-Category to Columns
+• Drag Profit to Rows
+• Select heat maps from Show Me Icon
+• Click on swap Rows and Columns icon
+• Sort by descending order of Profit
+• Drag Segment to color in Marks sheet
+• Drag Profit to Label in Marks sheet
+• Select Entire View
+
+Conclusion:
+Details Consumer Corporate Home Office
+Highest Profit Copiers
+24,084
+Copiers
+18,990
+Copiers
+13,020
+
+Create a Box plot to identify the Technology that has the highest Profit.
+• Drag Category to Columns
+• Drag Profit to Rows
+• Drag Sub-Category to Detail in Marks sheet
+• Drag Sub-Category to Label in Marks sheet
+• Drag Profit to Label in Marks sheet
+• Select Boxplot from Show Me option and change the color using reference line.
+• Click on swap Rows and Columns icon
+• Select Entire View
+
+Conclusion:
+Details Technology
+Highest Profit Copiers 56,094
+
+11)
+You are provided with Coffee dataset which contains details about Coffee Sales and Profit. Use
+Tableau Visualization tool to perform the following operations on the given dataset
+• Display the top 5 States (each in different color) having the highest Sales
+• Display the Espresso Products in descending order of Sales
+• In California, display the Product with the highest and lowest Profit
+• Create a Heat map for Product Type, State, and Profit. Identify which State has the lowest
+Profit for Espresso.
+
+Solution:
+Display the top 5 States (each in different color) having the highest Sales
+• Drag and drop Sales to Columns
+• Drag and drop State to Rows
+• Drag State to Color, Sales to Label in Marks sheet
+• Drag State to Filters, Click on Top, Select By field, top 5 by Sales
+• Sort in descending order of Sales
+• Rename the Work sheet and change the title of the Work sheet
+
+Conclusion:
+Top 5 States Sales
+California 96,892
+New York 70,852
+Illinois 69,883
+Nevada 60,159
+Lowa 54,750
+
+Display the Espresso Products in descending order of Sales
+• Drag and drop Sales to Columns
+• Drag and drop Product to Rows
+• Drag Product to Color, Sales to Label in Marks sheet
+• Drag Product Type to Filters, Click on General, Select Espresso
+• Sort in descending order of Sales
+• Rename the Work sheet and change the title of the Work sheet
+Conclusion:
+Espresso Products Sales
+Caffe Mocha 84,904
+Decaf Espresso 78,162
+Caffe Latte 35,899
+Regular Espresso 24,031
+
+In California, display the Product with the highest and lowest Profit
+• Drag and drop Profit to Columns
+• Drag and drop Product to Rows
+• Drag Profit to Label in Marks sheet
+• Drag State to Filters, Click on General, Select California
+• Sort in descending order of Profit
+• Rename the Work sheet and change the title of the Work sheet
+
+Conclusion:
+Profit details Product Value
+Highest Profit Colombian 8,566
+Lowest Profit Decaf Irish Cream -3,891
+
+Create a Heat map for Product Type, State, and Profit. Identify which State has the lowest Profit for
+Espresso.
+• Drag and drop Product Type and State to Columns
+• Drag and drop Profit to Rows
+• Select Heat Maps from Show Me icon
+• Select Swap icon, Select Entire View
+• Drag and drop Product Type to Filters, select only Espresso
+• Drag Profit to Lebel
+• Sort in ascending order of Profit
+• Rename the Work sheet and change the title of the Work sheet
+
+Conclusion:
+State Lowest Profit for
+Espresso
+New Hampshire -375
+
+Q12)
+You are provided with Coffee dataset which contains details about Coffee Sales and Profit. Use
+Tableau Visualization tool to perform the following operations on the given dataset
+• Display the States having the Sales between 50,000$ and 80,000$
+• Determine the Average Profit for all the Products starting with “C”
+• In 2013, determine the State with the highest Profit in the West market
+• Display the bottom 5 States using a Map having the lowest Profit
+
+Display the States having the Sales between 50,000$ and 80,000$
+• Drag and drop State to Columns
+• Drag and drop Sales to Rows
+• Make Horizontal Bar chart using Swap
+• Drag State and Sales to Lebel
+• Drag State to Color
+• Drag Sales to Filters, click on Sum->Next->Select the range 50,000 and 80,000, click on Apply
+• Sort in descending order of Sales
+• Drag State to Color
+• Rename the Work sheet and change the title of the Work sheet
+
+Conclusion:
+State Sales
+New York 70,852
+Illinois 69,883
+Nevada 60,159
+Lowa 54,750
+
+Determine the Average Profit for all the Products starting with “C”
+• Drag and drop Product to Columns
+• Drag and drop Profit to Rows, change the aggregation to Average by clicking
+Profit in Rows->Measure->Average
+• Drag Product to Filters -> Wildcard ->Starts with ->C
+• Swap Row and Columns for Horizontal Bar chart, Select Entire View
+• Drag Profit to Label and change it to Average (Sum(Profit)->Measure->Average)
+• Rename the Work sheet and change the title of the Work sheet
+
+Conclusion:
+Product starting with ‘C’ Average Profit
+Caffe Latte 52.66
+Caffe Mocha 36.83
+Chamomile 70.91
+Colombian 116.26
+
+In 2013, determine the State with the highest Profit in the West market
+• Drag and drop State to Columns
+• Drag and drop Profit to Rows
+• Drag Market to Filters, Select West
+• Drag Date to Filters->Years->2013
+• Drag Profit to Label
+• Sort the details in descending order of Profit
+• Select Fit Width
+• Rename the Work sheet and change the title of the Work sheet
+
+Conclusion:
+State Highest Profit
+California 1,034
+BCS24358B Lab Manual - CSE, GAT Page 49 of 50
+Display the bottom 5 States using a Map having the lowest Profit
+• Drag and drop State to Columns
+• Drag Profit to Rows
+• Drag Profit to Label in Marks Sheet
+• Drag State to Color and Label in Marks Sheet
+• Rename the Work sheet and change the title of the Work sheet
+
+Conclusion:
+Bottom 5 States Lowest Profit
+New Mexico 799
+New Hampshire 2,748
+Missouri 3,601
+Louisiana 7,355
+Connecticut 7,621
