@@ -1,4 +1,254 @@
+2a) import numpy as np
 
+array_2d = np.array([ ]) [1, 2, -2], [-1, 3, 0], [0, -2, 1]
+
+print("Number of elements in each dimension:", array_2d.shape)
+print("Data type of the matrix:", array_2d.dtype)
+
+print("Dimension of the matrix:", array_2d.ndim)
+
+inverse_matrix = np.linalg.inv(array_2d) 
+transpose_matrix = np.transpose(array_2d) 
+print("Inverse of the matrix:\n", inverse_matrix)
+
+print("Transpose of the matrix:\n", transpose_matrix)
+
+
+eigen_values, eigen_vectors = np.linalg.eig(array_2d) 
+determinant = np.linalg.det(array_2d) 
+print("Eigen values: \n", eigen_values) 
+print("Determinant:", determinant)
+
+identity_matrix = np.eye(3) 
+print("Identity Matrix:\n", identity_matrix)
+
+ones_array = np.ones((3, 3)) 
+print("Array filled with ones: \n", ones_array)
+
+zeros_array = np.zeros((3, 3)) 
+print("Array filled with zeros: \n", zeros_array)
+
+empty_array = np.empty((2, 2)) 
+print("Empty array:\n", empty_array)
+
+float_array = array_2d.astype(float) 
+print("Array converted to float type: \n", float_array)
+
+2b)
+
+import numpy as np
+
+array_3d np.array([[[3, 12, 6],
+
+[6, 15, 4],
+
+[2, 8, 7]],
+
+[[12, 11, 10],
+
+[5, 14, 13],
+
+[18, 17, 6]]])
+
+print("Original 3D array:")
+
+print(array_3d)
+
+# Extract the inner matrix
+
+inner_matrix = array_3d[0]
+
+print("\nInner Matrix:")
+
+print(inner_matrix)
+
+# Sorting 3D array elements row-wise
+
+row_sort= np.sort(array_3d, axis=2)
+
+print("\nSorted 3D array elements row-wise:")
+
+print(row_sort)
+
+
+# Sorting 3D array elements column-wise
+
+column_sort = np.sort(array_3d, axis=1)
+
+print("\nSorted 3D array elements column-wise:")
+
+print(column_sort)
+
+
+
+3.import pandas as pd
+
+# Read CSV file
+df = pd.read_csv("Stores.csv")
+
+print("Original Data Frame")
+print(df)
+
+# Summary statistics
+print("\nSummary Statistics")
+print(df.describe())
+
+# Reshaping the Data Frame
+reshape = df.pivot(index='Store_Name', columns='Year', values='Total_Sales')
+print("\nAfter reshaping the Data Frame")
+print(reshape)
+
+# Demonstrate pivot_table() method
+pivot_df = df.pivot_table(
+    index='Store_Name',
+    columns='Total_Sales',
+    values='Total_Profit',
+    aggfunc='sum'
+)
+print("\nPivot Table")
+print(pivot_df)
+
+# Determine duplicate values (keep last occurrence)
+duplicates = df.duplicated(subset=['Store_Name', 'Total_Profit'], keep='last')
+print("\nDuplicate Values (except the last occurrence)")
+print(duplicates)
+
+# Replace values with respect to labels
+replace = df.replace(
+    {'Store_Name': {'S1': 'Store 1', 'S2': 'Store 2', 'S3': 'Store 3', 'S4': 'Store 4'}}
+)
+print("\nAfter replacement, Data Frame")
+print(replace)
+
+# New Data Frame
+new_data = {
+    'Store_Name': ['S1', 'S2', 'S3'],
+    'Store_ID': [2, 3, 4],
+    'Location': ['Bengaluru', 'Mysuru', 'Udupi'],
+    'Manager_Name': ['Rishabh', 'Karthik', 'Chethan']
+}
+
+new_frame = pd.DataFrame(new_data)
+
+# Merge DataFrames
+merged_df = pd.merge(df, new_frame, on='Store_Name')
+print("\nMerged Data Frame")
+print(merged_df)
+
+
+
+
+4.import pandas as pd
+
+# Read CSV file
+df = pd.read_csv("employee_data.csv")
+
+print("Summary Statistics")
+print(df.describe())
+
+# Insert a new row
+new_row = {
+    'Emp_ID': [107],
+    'Name': ['Kiran'],
+    'Designation': ['Sales Manager'],
+    'Branch': ['Bengaluru'],
+    'Salary': [42000]
+}
+
+df_new_row = pd.DataFrame(new_row)
+df_row_result = pd.concat([df, df_new_row], axis=0, ignore_index=True)
+
+print("\nData Frame after inserting a Row")
+print(df_row_result)
+
+# Insert a new column
+new_column = {'Dept_ID': [3, 6, 6, 12, 8, 12]}
+df_new_column = pd.DataFrame(new_column)
+
+df_column_result = pd.concat([df, df_new_column], axis=1)
+
+print("\nData Frame after inserting a Column")
+print(df_column_result)
+
+# Delete row at index 1
+df_del_row = df.drop(1, axis=0)
+print("\nAfter dropping Index 1")
+print(df_del_row)
+
+# Delete Salary column
+df_del_column = df.drop('Salary', axis=1)
+print("\nAfter dropping Salary")
+print(df_del_column)
+
+
+
+
+5.import matplotlib.pyplot as plt
+import numpy as np
+
+# Sample data
+x = [2018, 2019, 2020, 2021, 2022, 2023]
+y1 = [650, 500, 400, 800, 880, 900]
+y2 = [780, 400, 550, 650, 850, 1000]
+
+# Background color
+ax = plt.axes()
+ax.set_facecolor("#9bedff")
+
+# Plot Company A
+plt.plot(x, y1, label='Company A', marker='o', linewidth=2)
+for a, b in zip(x, y1):
+    plt.text(a, b, str(b))
+
+# Plot Company B
+plt.plot(x, y2, label='Company B', marker='s', linewidth=2)
+for a, b in zip(x, y2):
+    plt.text(a, b, str(b))
+
+# Labels and title
+plt.xlabel('Year')
+plt.ylabel('Sales (in thousands)')
+plt.title('Sales Comparison Between Company A and Company B')
+
+plt.xticks(x)
+plt.yticks(np.arange(100, 1200, 100))
+plt.legend()
+
+plt.savefig('sales_chart.jpg')
+plt.show()
+
+
+
+
+6.import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Read CSV file
+df = pd.read_csv("bookfair_sales.csv")
+
+days = df['Days'].tolist()
+x = np.arange(len(days))
+width = 0.2
+
+y1 = df['Week 1'].tolist()
+y2 = df['Week 2'].tolist()
+y3 = df['Week 5'].tolist()
+
+plt.figure(figsize=(10, 6))
+
+plt.bar(x, y1, width, label='Week 1')
+plt.bar(x + 0.2, y2, width, label='Week 2')
+plt.bar(x + 0.4, y3, width, label='Week 5')
+
+plt.title("Book Sales Report")
+plt.xlabel("Days")
+plt.ylabel("Number of Copies Sold")
+plt.xticks(x + 0.2, days)
+plt.legend()
+
+plt.savefig('weekly_sales_chart.jpg')
+plt.show
 7)The following information is given that contains Tax details in a Budget.
 
 Income Form                       |  Amount (in Paise)
